@@ -1,0 +1,16 @@
+# 写真自動タギングツール 対象パス設定ファイル (paths.yaml)
+# コマンドライン引数でパスが指定されなかった場合、本ファイルの設定値が使用されます。
+#
+# パスの指定方法 (Windows):
+# 1. シングルクォートで囲む (推奨・そのまま書けます):
+#    target_dir: 'D:\Assets\Images'
+# 2. スラッシュを使用する:
+#    target_dir: "D:/Assets/Images"
+# 3. ダブルクォートでバックスラッシュを2重にする:
+#    target_dir: "D:\\Assets\\Images"
+# 4. 相対パス:
+#    target_dir: "input"
+#
+# ※ 個人環境のパスを含むため、このファイル (paths.yaml) は .gitignore に含まれ、Git管理から除外されます。
+
+target_dir: "input"

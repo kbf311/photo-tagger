@@ -1,0 +1,40 @@
+# 写真自動タギングアプリケーション 設定ファイル (RAM++)
+
+# 信頼度しきい値
+# - 数値 (例: 0.68): 指定したしきい値を超えるタグを出力します。
+# - null または 未指定: モデル内部でクラスごとに最適化された閾値 (デフォルト) を使用します。
+threshold: 0.68
+
+# 1画像あたりの最大タグ数
+# - 0 または null: 無制限 (検出されたすべてのタグを出力)
+# - 正の整数 (例: 20): 信頼度スコアが高い上位N件を出力
+max_tags: 0
+
+# 除外したいタグのリスト (ブラックリスト)
+# - 完全一致 (大文字小文字は区別されません)
+# 例:
+# excluded_tags:
+#   - "photo"
+#   - "blur"
+excluded_tags: []
+
+# 使用デバイス
+# - "cuda": NVIDIA GPU を使用 (CUDA環境が必須)
+# - "auto": CUDAが利用可能な場合はGPU、利用できない場合はCPUを自動選択
+# - "cpu": CPUを使用
+device: "cuda"
+
+# バッチサイズ (一度に並列推論する画像数)
+# GPUメモリ(VRAM)に応じて調整してください。(RTX 5060 Ti 16GBでは 16〜32 を推奨)
+batch_size: 16
+
+# モデル詳細設定
+model:
+  # Hugging Face リポジトリ ID
+  repo_id: "xinyu1205/recognize-anything-plus-model"
+  # 重みチェックポイントファイル名
+  filename: "ram_plus_swin_large_14m.pth"
+  # 保存先ディレクトリ (プロジェクト直下からの相対パスまたは絶対パス)
+  checkpoint_dir: "pretrained"
+  # 入力画像解像度
+  image_size: 384
